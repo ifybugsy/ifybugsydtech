@@ -37,6 +37,10 @@ export default function InstructorSignupPage() {
         addNotification('Please fill all fields', 'error');
         return;
       }
+      if (!formData.password || !formData.confirmPassword) {
+        addNotification('Please enter a password', 'error');
+        return;
+      }
       if (formData.password !== formData.confirmPassword) {
         addNotification('Passwords do not match', 'error');
         return;
@@ -73,14 +77,23 @@ export default function InstructorSignupPage() {
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'Registration failed');
+        let errorMessage = 'Registration failed';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch {
+          errorMessage = `Error: ${response.statusText || 'Unknown error'}`;
+        }
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
       addNotification('Signup successful! You can now login.', 'success');
-      router.push('/instructor-login');
+      setTimeout(() => {
+        router.push('/instructor-login');
+      }, 1500);
     } catch (error: any) {
+      console.log('[v0] Signup error:', error.message);
       addNotification(error.message || 'Signup failed. Please try again.', 'error');
     }
   };

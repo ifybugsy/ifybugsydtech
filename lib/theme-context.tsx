@@ -30,8 +30,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     // Apply theme to document
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
     }
   }, []);
 
@@ -42,7 +44,15 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setIsDark(newDarkMode);
     const theme = newDarkMode ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
-    document.documentElement.classList.toggle('dark', newDarkMode);
+    
+    // Apply dark mode to html element
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+    }
   };
 
   // During SSR or before mount, render children without context

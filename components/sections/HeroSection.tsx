@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const slides = [
   {
@@ -110,22 +109,7 @@ export const HeroSection = () => {
         ))}
       </div>
 
-      {/* Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
-        aria-label="Previous slide"
-      >
-        <FaChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
-      </button>
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
-        aria-label="Next slide"
-      >
-        <FaChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
-      </button>
     </section>
   );
 };

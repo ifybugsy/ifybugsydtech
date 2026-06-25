@@ -37,14 +37,14 @@ export const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-2 sm:py-2.5 md:py-3">
+      <div className="max-w-7xl mx-auto px-2 sm:px-3">
+        <div className="flex justify-between items-center py-1 sm:py-1.5">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <img 
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ifybugsy_Logo_I-removebg-preview-k2hmHcsgESeqfwrIGVfB71PGSGOeJ9.png" 
               alt="Ifybugsy Logo" 
-              className={`h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 ${isDark ? 'brightness-0 invert' : ''}`}
+              className={`h-16 sm:h-20 md:h-28 lg:h-32 w-auto object-contain transition-all duration-300 ${isDark ? 'brightness-0 invert' : ''}`}
             />
           </Link>
 
