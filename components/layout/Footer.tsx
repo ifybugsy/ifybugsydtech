@@ -115,7 +115,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <FaPhone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-foreground/60">+234 (0) 800 000 0000</span>
+                <span className="text-foreground/60">+234 (0) 9160007661</span>
               </li>
               <li className="flex items-start gap-2">
                 <FaMapMarkerAlt className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
