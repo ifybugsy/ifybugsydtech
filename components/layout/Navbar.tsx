@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/lib/auth-context';
 import { useCart } from '@/lib/cart-context';
-import { FaBars, FaTimes, FaSun, FaMoon, FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon, FaSignOutAlt } from 'react-icons/fa';
 import { useEffect } from 'react';
 
 export const Navbar = () => {
@@ -46,13 +46,13 @@ export const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center py-2 sm:py-2.5 md:py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <img 
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ifybugsy_Logo_I-removebg-preview-k2hmHcsgESeqfwrIGVfB71PGSGOeJ9.png" 
               alt="Ifybugsy Logo" 
-              className="h-60 w-auto sm:h-60 md:h-60 lg:h-60 min-h-60"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
             />
           </Link>
 
@@ -70,27 +70,18 @@ export const Navbar = () => {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center gap-4">
-            {/* Cart Button */}
-            <Link href="/cart" className="relative p-2 rounded-lg hover:bg-secondary transition-colors">
-              <FaShoppingCart className="w-5 h-5 text-foreground/60 hover:text-primary" />
-              {cart.itemCount > 0 && (
-                <span className="absolute top-0 right-0 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-bold">
-                  {cart.itemCount}
-                </span>
-              )}
-            </Link>
-
+          <div className="flex items-center gap-3 sm:gap-4">
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-secondary transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary transition-colors duration-200"
               aria-label="Toggle dark mode"
+              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDark ? (
-                <FaSun className="w-5 h-5 text-primary" />
+                <FaSun className="w-5 h-5 text-primary transition-transform duration-200" />
               ) : (
-                <FaMoon className="w-5 h-5 text-foreground/60" />
+                <FaMoon className="w-5 h-5 text-foreground/60 transition-transform duration-200" />
               )}
             </button>
 
@@ -166,13 +157,13 @@ export const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <FaTimes className="w-6 h-6 text-foreground" />
+                <FaTimes className="w-5 h-5 text-foreground transition-transform duration-200" />
               ) : (
-                <FaBars className="w-6 h-6 text-foreground" />
+                <FaBars className="w-5 h-5 text-foreground transition-transform duration-200" />
               )}
             </button>
           </div>

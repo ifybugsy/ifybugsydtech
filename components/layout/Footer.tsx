@@ -17,7 +17,7 @@ export const Footer = () => {
               <img 
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ifybugsy_Logo_I-removebg-preview-5qm2JA30ii98ZvwJ7DHxszyBR58FTQ.png" 
                 alt="Ifybugsy Logo" 
-                className="h-60 w-auto"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-foreground/60 text-sm mb-4">
