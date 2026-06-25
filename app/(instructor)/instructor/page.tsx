@@ -7,7 +7,7 @@ import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaUsers, FaBook, FaClipboardList, FaActivity, FaClock, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { FaUsers, FaBook, FaClipboardList, FaBolt, FaClock, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 interface DashboardStats {
   assignedStudents: number;
@@ -87,7 +87,7 @@ export default function InstructorDashboardPage() {
                   href: '/instructor/attendance',
                 },
                 {
-                  icon: FaActivity,
+                  icon: FaBolt,
                   label: 'Active Sessions',
                   value: 2,
                   href: '/instructor/sessions',
@@ -123,7 +123,7 @@ export default function InstructorDashboardPage() {
               >
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
-                    <FaActivity className="w-5 h-5 text-primary" />
+                    <FaBolt className="w-5 h-5 text-primary" />
                     Recent Activity
                   </h2>
                   <Link href="/instructor/activity" className="text-sm text-primary hover:underline">
