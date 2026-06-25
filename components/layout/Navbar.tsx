@@ -1,32 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/lib/auth-context';
 import { useCart } from '@/lib/cart-context';
+import { useTheme } from '@/lib/theme-context';
 import { FaBars, FaTimes, FaSun, FaMoon, FaSignOutAlt } from 'react-icons/fa';
-import { useEffect } from 'react';
 
 export const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const { cart } = useCart();
+  const { isDark, toggleDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setIsDark(savedTheme === 'dark');
+    setIsMounted(true);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDark;
-    setIsDark(newDarkMode);
-    const theme = newDarkMode ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.toggle('dark', newDarkMode);
-  };
 
   const handleLogout = () => {
     logout();
@@ -52,7 +44,7 @@ export const Navbar = () => {
             <img 
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ifybugsy_Logo_I-removebg-preview-k2hmHcsgESeqfwrIGVfB71PGSGOeJ9.png" 
               alt="Ifybugsy Logo" 
-              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+              className={`h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 ${isDark ? 'brightness-0 invert' : ''}`}
             />
           </Link>
 
